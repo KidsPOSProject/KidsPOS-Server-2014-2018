@@ -40,11 +40,11 @@ compileJava {
 }
 
 jettyRun {
-    httpPort = 80
+    httpPort = 8080
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.5'
+    gradleVersion = '2.10'
 }
 
 war {
