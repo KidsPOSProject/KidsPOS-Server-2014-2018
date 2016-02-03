@@ -1,6 +1,6 @@
 package info.nukoneko.kidspos.api;
-import info.nukoneko.kidspos4j.model.ModelSale;
-import info.nukoneko.kidspos4j.model.SaleFactory;
+import info.nukoneko.kidspos4j.model.*;
+import rx.Observable;
 
 import javax.ws.rs.*;
 import java.util.ArrayList;
@@ -105,5 +105,17 @@ public class Sales {
     @Path("{storeId}/{saleId}")
     public String deleteSales(@PathParam("storeId") int storeId, @PathParam("saleId") int saleId){
         return "DELETE " + String.valueOf(storeId) + " " + String.valueOf(saleId);
+    }
+    @GET
+    @Path("list")
+    @Produces("application/json")
+    public String getSaleListArray(@QueryParam("limit") Integer limit){
+        ArrayList<ModelSale> baseList = SaleFactory.getInstance().findAll();
+        if (limit == null){
+            return JSONConvertor.toJSON(baseList);
+        }
+        Observable<ModelSale> list = Observable.from(baseList.toArray(new ModelSale[baseList.size()]));
+
+        return JSONConvertor.toJSON(list.limit(limit).toList().toBlocking().single());
     }
 }

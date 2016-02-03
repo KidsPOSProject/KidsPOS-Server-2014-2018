@@ -10,11 +10,15 @@ def defaultEncoding = 'UTF-8'
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
 
+def user = 'nukomvn'
+def passwd = 'Cy+FviFRKEG3'
+def mvnurl = 'http://mvn.nukoneko.info/'
+
 repositories {
     mavenCentral()
     maven {
         credentials {
-            username "$username"
+            username "$user"
             password "$passwd"
         }
         url "$mvnurl"
@@ -37,7 +41,7 @@ dependencies {
     providedCompile "org.eclipse.jetty:jetty-webapp:$JettyVersion"
     providedCompile "org.eclipse.jetty:jetty-jsp-2.1:+"
 
-    providedCompile 'info.nukoneko:kidspos4j:0.0.2'
+    providedCompile 'info.nukoneko:kidspos4j:0.0.3'
 
 }
 

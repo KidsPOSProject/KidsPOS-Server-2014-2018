@@ -1,7 +1,7 @@
 package info.nukoneko.kidspos.api;
 
 import info.nukoneko.kidspos4j.model.ItemFactory;
-import info.nukoneko.kidspos4j.model.JSONConverter;
+import info.nukoneko.kidspos4j.model.JSONConvertor;
 import info.nukoneko.kidspos4j.model.ModelItem;
 import rx.Observable;
 import rx.Observer;
@@ -46,11 +46,11 @@ public class Item {
     public String getItemListArray(@QueryParam("limit") Integer limit){
         ArrayList<ModelItem> baseList = ItemFactory.getInstance().findAll();
         if (limit == null){
-            return JSONConverter.toJSON(baseList);
+            return JSONConvertor.toJSON(baseList);
         }
         Observable<ModelItem> list = Observable.from(baseList.toArray(new ModelItem[baseList.size()]));
 
-        return JSONConverter.toJSON(list.limit(limit).toList().toBlocking().single());
+        return JSONConvertor.toJSON(list.limit(limit).toList().toBlocking().single());
     }
 
 //    @POST
