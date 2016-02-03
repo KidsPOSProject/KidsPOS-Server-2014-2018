@@ -1,9 +1,8 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.kidspos.database.SaleFactory;
-import info.nukoneko.kidspos.database.StaffFactory;
-import info.nukoneko.kidspos.model.SaleModel;
-import info.nukoneko.kidspos.model.StaffModel;
+
+import info.nukoneko.kidspos4j.model.ModelStaff;
+import info.nukoneko.kidspos4j.model.StaffFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,10 +21,10 @@ public class Staff {
                 "<td>BARCODE</td>" +
                 "<td>NAME</td>" +
                 "</tr>";
-        for (StaffModel item : StaffFactory.getInstance().findAll()){
+        for (ModelStaff item : StaffFactory.getInstance().findAll()){
             res += "<tr>";
-            res += String.format("<td>%s</td>", item.barcode);
-            res += String.format("<td>%s</td>", item.name);
+            res += String.format("<td>%s</td>", item.getBarcode());
+            res += String.format("<td>%s</td>", item.getName());
             res += "</tr>";
         }
         res += "</table>";

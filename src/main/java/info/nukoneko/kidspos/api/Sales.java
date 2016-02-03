@@ -1,9 +1,6 @@
 package info.nukoneko.kidspos.api;
-import info.nukoneko.kidspos.database.ItemFactory;
-import info.nukoneko.kidspos.database.SaleFactory;
-import info.nukoneko.kidspos.model.ItemModel;
-import info.nukoneko.kidspos.model.SaleModel;
-import info.nukoneko.kidspos.util.converter.JSON;
+import info.nukoneko.kidspos4j.model.ModelSale;
+import info.nukoneko.kidspos4j.model.SaleFactory;
 
 import javax.ws.rs.*;
 import java.util.ArrayList;
@@ -36,16 +33,16 @@ public class Sales {
                 "<td>STORE</td>" +
                 "<td>STAFF</td>" +
                 "</tr>";
-        for (SaleModel item : SaleFactory.getInstance().findAll()){
+        for (ModelSale item : SaleFactory.getInstance().findAll()){
             res += "<tr>";
-            res += String.format("<td>%d</td>", item.id);
-            res += String.format("<td>%s</td>", item.barcode);
-            res += String.format("<td>%s</td>", item.createdAt);
-            res += String.format("<td>%d</td>", item.points);
-            res += String.format("<td>%d</td>", item.price);
-            res += String.format("<td>%s</td>", item.items);
-            res += String.format("<td>%d</td>", item.store);
-            res += String.format("<td>%d</td>", item.staff);
+            res += String.format("<td>%d</td>", item.getId());
+            res += String.format("<td>%s</td>", item.getBarcode());
+            res += String.format("<td>%s</td>", item.getCreatedAt());
+            res += String.format("<td>%d</td>", item.getPoints());
+            res += String.format("<td>%d</td>", item.getPrice());
+            res += String.format("<td>%s</td>", item.getItems());
+            res += String.format("<td>%d</td>", item.getStore());
+            res += String.format("<td>%d</td>", item.getStaff());
             res += "</tr>";
         }
         res += "</table>";

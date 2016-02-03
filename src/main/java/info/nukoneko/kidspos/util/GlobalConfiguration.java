@@ -1,7 +1,5 @@
 package info.nukoneko.kidspos.util;
 
-import info.nukoneko.kidspos.util.config.TableName;
-
 /**
  * Created by TEJNEK on 2016/01/31.
  */

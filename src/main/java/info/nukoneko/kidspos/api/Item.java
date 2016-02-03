@@ -1,8 +1,10 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.kidspos.database.ItemFactory;
-import info.nukoneko.kidspos.model.ItemModel;
-import info.nukoneko.kidspos.util.converter.JSON;
+import info.nukoneko.kidspos4j.model.ItemFactory;
+import info.nukoneko.kidspos4j.model.JSONConverter;
+import info.nukoneko.kidspos4j.model.ModelItem;
+import rx.Observable;
+import rx.Observer;
 
 import javax.ws.rs.*;
 import java.util.ArrayList;
@@ -24,14 +26,14 @@ public class Item {
                 "<td>SHOP</td>" +
                 "<td>GENRE</td>" +
                 "</tr>";
-        for (ItemModel itemModel : ItemFactory.getInstance().findAll()){
+        for (ModelItem itemModel : ItemFactory.getInstance().findAll()){
             res += "<tr>";
-            res += String.format("<td>%d</td>", itemModel.id);
-            res += String.format("<td>%s</td>", itemModel.barcode);
-            res += String.format("<td>%s</td>", itemModel.name);
-            res += String.format("<td>%d</td>", itemModel.price);
-            res += String.format("<td>%d</td>", itemModel.shop);
-            res += String.format("<td>%s</td>", itemModel.genre);
+            res += String.format("<td>%d</td>", itemModel.getId());
+            res += String.format("<td>%s</td>", itemModel.getBarcode());
+            res += String.format("<td>%s</td>", itemModel.getName());
+            res += String.format("<td>%d</td>", itemModel.getPrice());
+            res += String.format("<td>%d</td>", itemModel.getShop());
+            res += String.format("<td>%s</td>", itemModel.getGenre());
             res += "</tr>";
         }
         res += "</table>";
@@ -41,9 +43,14 @@ public class Item {
     @GET
     @Path("list")
     @Produces("application/json")
-    public String getItemListArray(){
-        ArrayList<ItemModel> list = ItemFactory.getInstance().findAll();
-        return JSON.covertJSON(list);
+    public String getItemListArray(@QueryParam("limit") Integer limit){
+        ArrayList<ModelItem> baseList = ItemFactory.getInstance().findAll();
+        if (limit == null){
+            return JSONConverter.toJSON(baseList);
+        }
+        Observable<ModelItem> list = Observable.from(baseList.toArray(new ModelItem[baseList.size()]));
+
+        return JSONConverter.toJSON(list.limit(limit).toList().toBlocking().single());
     }
 
 //    @POST

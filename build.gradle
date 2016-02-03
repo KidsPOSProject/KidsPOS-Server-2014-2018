@@ -12,6 +12,13 @@ targetCompatibility = javaVersion
 
 repositories {
     mavenCentral()
+    maven {
+        credentials {
+            username "$username"
+            password "$passwd"
+        }
+        url "$mvnurl"
+    }
 }
 
 def JerseyVersion = '2.22.1'
@@ -30,9 +37,8 @@ dependencies {
     providedCompile "org.eclipse.jetty:jetty-webapp:$JettyVersion"
     providedCompile "org.eclipse.jetty:jetty-jsp-2.1:+"
 
-    compile "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:$JacksonVersion"
+    providedCompile 'info.nukoneko:kidspos4j:0.0.2'
 
-    compile 'org.xerial:sqlite-jdbc:3.7.2'
 }
 
 compileJava {

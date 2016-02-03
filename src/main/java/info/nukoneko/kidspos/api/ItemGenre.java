@@ -1,9 +1,7 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.kidspos.database.ItemGenreFactory;
-import info.nukoneko.kidspos.database.StaffFactory;
-import info.nukoneko.kidspos.model.ItemGenreModel;
-import info.nukoneko.kidspos.model.StaffModel;
+import info.nukoneko.kidspos4j.model.ItemGenreFactory;
+import info.nukoneko.kidspos4j.model.ModelItemGenre;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -23,11 +21,11 @@ public class ItemGenre {
                 "<td>NAME</td>" +
                 "<td>STORE</td>" +
                 "</tr>";
-        for (ItemGenreModel item : ItemGenreFactory.getInstance().findAll()){
+        for (ModelItemGenre item : ItemGenreFactory.getInstance().findAll()){
             res += "<tr>";
-            res += String.format("<td>%s</td>", item.id);
-            res += String.format("<td>%s</td>", item.name);
-            res += String.format("<td>%s</td>", item.store);
+            res += String.format("<td>%s</td>", item.getId());
+            res += String.format("<td>%s</td>", item.getName());
+            res += String.format("<td>%s</td>", item.getStore());
             res += "</tr>";
         }
         res += "</table>";
