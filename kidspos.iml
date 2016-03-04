@@ -14,8 +14,8 @@
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-webapp-8.1.18.v20150929.jar_39rwueroyo3wftgsb92jvn1g9" relative="" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-jsp-2.1-7.5.4.v20111024.jar_5tonmf41li01mrt3s52w1calk/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-jsp-2.1-7.5.4.v20111024.jar_5tonmf41li01mrt3s52w1calk" relative="" />
-          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.0.5.jar_690xnn14udrmqvxwavmynqxzf/META-INF" relative="/META-INF" />
-          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.0.5.jar_690xnn14udrmqvxwavmynqxzf/info" relative="/info" />
+          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.0.12.jar_75vk1igkr8segolizykvsiqor/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.0.12.jar_75vk1igkr8segolizykvsiqor/info" relative="/info" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/javax.servlet-3.0.0.v201112011016.jar_4ndf5jwsc01zw7fd4tt65ph8y/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/javax.servlet-3.0.0.v201112011016.jar_4ndf5jwsc01zw7fd4tt65ph8y" relative="" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-continuation-8.1.18.v20150929.jar_cq6ru2t0gskja00h1mvozmz6n/META-INF" relative="/META-INF" />
@@ -62,8 +62,8 @@
           <root url="file://$MODULE_DIR$/build/classes/main/info" relative="/info" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
         </sourceRoots>
       </configuration>
     </facet>
@@ -128,6 +128,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.7.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.squareup.okio:okio:1.6.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.7.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: info.nukoneko:kidspos4j:0.0.5" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: info.nukoneko:kidspos4j:0.0.12" level="project" />
   </component>
 </module>

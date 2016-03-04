@@ -12,21 +12,21 @@ import javax.ws.rs.Produces;
  */
 @Path("store")
 public class Store {
-    @GET
-    @Produces("text/html")
-    public String getStoreList(){
-        String res = "<table border=\"1\">";
-        res += "<tr>" +
-                "<td>ID</td>" +
-                "<td>NAME</td>" +
-                "</tr>";
-        for (ModelStore item : StoreFactory.getInstance().findAll()){
-            res += "<tr>";
-            res += String.format("<td>%s</td>", item.getId());
-            res += String.format("<td>%s</td>", item.getName());
-            res += "</tr>";
-        }
-        res += "</table>";
-        return res;
-    }
+//    @GET
+//    @Produces("text/html")
+//    public String getStoreList(){
+//        String res = "<table border=\"1\">";
+//        res += "<tr>" +
+//                "<td>ID</td>" +
+//                "<td>NAME</td>" +
+//                "</tr>";
+//        for (ModelStore item : StoreFactory.getInstance().findAll()){
+//            res += "<tr>";
+//            res += String.format("<td>%s</td>", item.getId());
+//            res += String.format("<td>%s</td>", item.getName());
+//            res += "</tr>";
+//        }
+//        res += "</table>";
+//        return res;
+//    }
 }

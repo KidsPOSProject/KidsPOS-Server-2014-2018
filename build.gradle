@@ -37,7 +37,7 @@ dependencies {
     providedCompile "org.eclipse.jetty:jetty-webapp:$JettyVersion"
     providedCompile "org.eclipse.jetty:jetty-jsp-2.1:+"
 
-    providedCompile 'info.nukoneko:kidspos4j:0.0.5'
+    providedCompile 'info.nukoneko:kidspos4j:+'
 
 }
 
