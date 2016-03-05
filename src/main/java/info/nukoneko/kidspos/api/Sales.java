@@ -1,8 +1,10 @@
 package info.nukoneko.kidspos.api;
+import info.nukoneko.kidspos4j.api.Sale;
 import info.nukoneko.kidspos4j.exception.CannotCreateItemException;
 import info.nukoneko.kidspos4j.model.*;
 import rx.Observable;
 
+import javax.json.Json;
 import javax.ws.rs.*;
 import java.util.ArrayList;
 
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 /** Memo
  * @QueryParam Get等の ?name=hoge
  * @FormParam POST等の ?name=hoge
+ * @PathParam URL等の tin.jp/12345/
  * @CookieParam Cookie等の ?name=Hoge
  *
  * @Consumes(MediaType.$type) 受け取るデータ
@@ -20,39 +23,22 @@ import java.util.ArrayList;
  */
 @Path("sale")
 public class Sales {
-//    @GET
-//    @Produces("text/html")
-//    public String getSalesList(){
-//        String res = "<table border=\"1\">";
-//        res += "<tr>" +
-//                "<td>ID</td>" +
-//                "<td>BARCODE</td>" +
-//                "<td>CREATED_AT</td>" +
-//                "<td>POINTS</td>" +
-//                "<td>PRICE</td>" +
-//                "<td>ITEMS</td>" +
-//                "<td>STORE</td>" +
-//                "<td>STAFF</td>" +
-//                "</tr>";
-//        for (ModelSale item : SaleFactory.getInstance().findAll()){
-//            res += "<tr>";
-//            res += String.format("<td>%d</td>", item.getId());
-//            res += String.format("<td>%s</td>", item.getBarcode());
-//            res += String.format("<td>%s</td>", item.getCreatedAt());
-//            res += String.format("<td>%d</td>", item.getPoints());
-//            res += String.format("<td>%d</td>", item.getPrice());
-//            res += String.format("<td>%s</td>", item.getItems());
-//            res += String.format("<td>%d</td>", item.getStoreId());
-//            res += String.format("<td>%d</td>", item.getStaffId());
-//            res += "</tr>";
-//        }
-//        res += "</table>";
-//        return res;
-//    }
+    @GET
+    @Path("list")
+    @Produces("application/json")
+    public String getItemListArray(@QueryParam("limit") Integer limit){
+        ArrayList<ModelSale> baseList = SaleFactory.getInstance().findAll();
+        if (limit == null){
+            return JSONConvertor.toJSON(baseList);
+        }
+        Observable<ModelSale> list = Observable.from(baseList.toArray(new ModelSale[baseList.size()]));
+
+        return JSONConvertor.toJSON(list.limit(limit).toList().toBlocking().single());
+    }
 
     @GET
-    @Path("/")
-    public String getSale(@QueryParam("barcode") String barcode){
+    @Path("{barcode}")
+    public String getSale(@PathParam("barcode") String barcode){
         ModelSale sale = SaleFactory.getInstance().findFromBarcode(barcode);
         if (sale == null){
             return "";
@@ -61,19 +47,49 @@ public class Sales {
         }
     }
 
-    @POST
-    @Path("/")
-    public String createSale(@FormParam("sale") String saleJson){
-        ModelSale _sale = JSONConvertor.parse(saleJson, ModelSale.class);
-        try {
-            ModelSale ret = ((DataSaleImpl)SaleFactory.getInstance()).createNewSale(_sale.getPoints(), _sale.getPrice(), _sale.getItems(), _sale.getStoreId(), _sale.getStaffId());
-            // PrintManager
 
-            return JSONConvertor.toJSON(ret);
-        } catch (CannotCreateItemException e) {
-            e.printStackTrace();
+    @POST
+    @Path("create")
+    public String createSale(@FormParam("points") int points,
+                             @FormParam("price") int price,
+                             @FormParam("items") String items,
+                             @FormParam("storeId") int storeId,
+                             @FormParam("staffId") int staffId){
+        ModelSale sale = SaleFactory.getInstance()
+                .createNewSale(points, price, items, storeId, staffId);
+
+        if (sale == null){
+            return "";
+        } else {
+            return JSONConvertor.toJSON(sale);
         }
-        return "";
+    }
+
+    @POST
+    @Path("{barcode}/update")
+    public String updateSale(
+            @PathParam("barcode") String barcode,
+            @FormParam("points") int points,
+            @FormParam("price") int price,
+            @FormParam("items") String items,
+            @FormParam("storeId") int storeId,
+            @FormParam("staffId") int staffId) {
+        ModelSale sale = SaleFactory.getInstance().findFromBarcode(barcode);
+        if (sale == null) {
+            return "";
+        }
+
+        sale.setPoints(points);
+        sale.setPrice(price);
+        sale.setItems(items);
+        sale.setStoreId(storeId);
+        sale.setStaffId(staffId);
+
+        if (SaleFactory.getInstance().update(sale)) {
+            return JSONConvertor.toJSON(sale);
+        } else {
+            return "";
+        }
     }
 
 //    /***

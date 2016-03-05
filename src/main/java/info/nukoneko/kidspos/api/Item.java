@@ -64,6 +64,28 @@ public class Item {
         }
     }
 
+    /*
+    String name,
+                                   Integer storeId,
+                                   Integer genreId,
+                                   Integer price
+     */
+
+    @POST
+    @Path("create")
+    public String createItem(@FormParam("itemName") String name,
+                             @FormParam("storeId") int storeId,
+                             @FormParam("genreId") int genreId,
+                             @FormParam("price") int price){
+        ModelItem item = ItemFactory.getInstance()
+                .createNewItem(name, storeId, genreId, price);
+        if (item == null){
+            return "";
+        } else {
+            return JSONConvertor.toJSON(item);
+        }
+    }
+
     @POST
     @Path("/")
     public String updatePrice(@FormParam("barcode") String barcode, @FormParam("new_price") Integer newPrice){

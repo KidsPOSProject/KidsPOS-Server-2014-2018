@@ -47,21 +47,15 @@ public class Staff {
     }
 
     @POST
-    @Path("/")
-    public String createStaff(@FormParam("new_staff") String staffJson) {
-        ModelStaff staff = JSONConvertor.parse(staffJson, ModelStaff.class);
+    @Path("create")
+    public String createStaff(
+            @FormParam("name") String name) {
+        ModelStaff staff = StaffFactory.getInstance()
+                .createNewStaff(name);
         if (staff == null) {
             return "";
         } else {
-            try {
-                ModelStaff _staff = ((DataStaffImpl)StaffFactory.getInstance()).createNewStaff(staff.getName());
-                // Print
-
-                return JSONConvertor.toJSON(_staff);
-            } catch (CannotCreateItemException e) {
-                e.printStackTrace();
-            }
-            return "";
+            return JSONConvertor.toJSON(staff);
         }
     }
 

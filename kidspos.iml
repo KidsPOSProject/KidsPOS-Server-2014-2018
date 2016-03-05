@@ -14,8 +14,8 @@
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-webapp-9.2.15.v20160210.jar_8b3i6i9g260pkkbk2jy6bzxya" relative="" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-jsp-2.1-7.5.4.v20111024.jar_5tonmf41li01mrt3s52w1calk/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-jsp-2.1-7.5.4.v20111024.jar_5tonmf41li01mrt3s52w1calk" relative="" />
-          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.1.0.jar_8bbpy71gxxtkz744r9p5mmcak/META-INF" relative="/META-INF" />
-          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.1.0.jar_8bbpy71gxxtkz744r9p5mmcak/info" relative="/info" />
+          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.1.4.jar_1dki07l2mw032bxg5ik18mcey/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.1.4.jar_1dki07l2mw032bxg5ik18mcey/info" relative="/info" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_6mdizte20hyioe2t0yj63mpzr/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_6mdizte20hyioe2t0yj63mpzr/javax" relative="/javax" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-http-9.2.15.v20160210.jar_8o68noquiladc0mma76dvhk9i/META-INF" relative="/META-INF" />
@@ -108,7 +108,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.xerial:sqlite-jdbc:3.7.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.squareup.okio:okio:1.6.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.7.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: info.nukoneko:kidspos4j:0.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.7.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: io.reactivex:rxjava:1.1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: com.squareup.okhttp3:okhttp:3.2.0" level="project" />
@@ -129,5 +128,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-servlet:9.2.15.v20160210" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-util:9.2.15.v20160210" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-security:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: info.nukoneko:kidspos4j:0.1.4" level="project" />
   </component>
 </module>
