@@ -1,11 +1,13 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.kidspos4j.model.ItemGenreFactory;
-import info.nukoneko.kidspos4j.model.ModelItemGenre;
+import info.nukoneko.kidspos4j.model.*;
+import rx.Observable;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import java.util.ArrayList;
 
 /**
  * Created by TEJNEK on 2016/01/31.
@@ -31,4 +33,19 @@ public class ItemGenre {
 //        res += "</table>";
 //        return res;
 //    }
+
+    @GET
+    @Path("list")
+    @Produces("application/json")
+    public String getItemGenreListArray(@QueryParam("limit") Integer limit){
+        ArrayList<ModelItemGenre> baseList = ItemGenreFactory.getInstance().findAll();
+        if (limit == null){
+            return JSONConvertor.toJSON(baseList);
+        }
+        Observable<ModelItemGenre> list =
+                Observable.from(baseList.toArray(new ModelItemGenre[baseList.size()]));
+
+        return JSONConvertor.toJSON(list.limit(limit).toList().toBlocking().single());
+    }
+
 }
