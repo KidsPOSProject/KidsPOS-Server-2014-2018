@@ -13,24 +13,6 @@ import java.util.ArrayList;
  */
 @Path("staff")
 public class Staff {
-//    @GET
-//    @Produces("text/html")
-//    public String getStaffList(){
-//        String res = "<table border=\"1\">";
-//        res += "<tr>" +
-//                "<td>BARCODE</td>" +
-//                "<td>NAME</td>" +
-//                "</tr>";
-//        for (ModelStaff item : StaffFactory.getInstance().findAll()){
-//            res += "<tr>";
-//            res += String.format("<td>%s</td>", item.getBarcode());
-//            res += String.format("<td>%s</td>", item.getName());
-//            res += "</tr>";
-//        }
-//        res += "</table>";
-//        return res;
-//    }
-
     @GET
     @Path("list")
     public String getStaff(@QueryParam("limit") Integer limit){
@@ -43,15 +25,14 @@ public class Staff {
 
         return JSONConvertor
                 .toJSON(list.limit(limit).toList().toBlocking().single());
-
     }
 
     @POST
     @Path("create")
     public String createStaff(
             @FormParam("name") String name) {
-        ModelStaff staff = StaffFactory.getInstance()
-                .createNewStaff(name);
+        ModelStaff staff =
+                StaffFactory.getInstance().createNewStaff(name);
         if (staff == null) {
             return "";
         } else {

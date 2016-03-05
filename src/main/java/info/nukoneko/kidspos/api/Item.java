@@ -1,8 +1,7 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.kidspos4j.model.ItemFactory;
-import info.nukoneko.kidspos4j.model.JSONConvertor;
-import info.nukoneko.kidspos4j.model.ModelItem;
+import info.nukoneko.kidspos4j.model.*;
+import retrofit2.http.Field;
 import rx.Observable;
 import rx.Observer;
 
@@ -14,38 +13,12 @@ import java.util.ArrayList;
  */
 @Path("item")
 public class Item {
-//    @GET
-//    @Produces("text/html")
-//    public String getItemList(){
-//        String res = "<table border=\"1\">";
-//        res += "<tr>" +
-//                "<td>ID</td>" +
-//                "<td>BARCODE</td>" +
-//                "<td>NAME</td>" +
-//                "<td>PRICE</td>" +
-//                "<td>SHOP</td>" +
-//                "<td>GENRE</td>" +
-//                "</tr>";
-//        for (ModelItem itemModel : ItemFactory.getInstance().findAll()){
-//            res += "<tr>";
-//            res += String.format("<td>%d</td>", itemModel.getId());
-//            res += String.format("<td>%s</td>", itemModel.getBarcode());
-//            res += String.format("<td>%s</td>", itemModel.getName());
-//            res += String.format("<td>%d</td>", itemModel.getPrice());
-//            res += String.format("<td>%d</td>", itemModel.getStoreId());
-//            res += String.format("<td>%s</td>", itemModel.getGenreId());
-//            res += "</tr>";
-//        }
-//        res += "</table>";
-//        return res;
-//    }
-
     @GET
     @Path("list")
     @Produces("application/json")
-    public String getItemListArray(@QueryParam("limit") Integer limit){
+    public String getItemListArray(@QueryParam("limit") Integer limit) {
         ArrayList<ModelItem> baseList = ItemFactory.getInstance().findAll();
-        if (limit == null){
+        if (limit == null) {
             return JSONConvertor.toJSON(baseList);
         }
         Observable<ModelItem> list = Observable.from(baseList.toArray(new ModelItem[baseList.size()]));
@@ -54,8 +27,8 @@ public class Item {
     }
 
     @GET
-    @Path("/")
-    public String getItem(@QueryParam("barcode") String barcode){
+    @Path("{barcode}")
+    public String readItem(@PathParam("barcode") String barcode) {
         ModelItem item = ItemFactory.getInstance().findFromBarcode(barcode);
         if (item == null) {
             return "";
@@ -64,22 +37,15 @@ public class Item {
         }
     }
 
-    /*
-    String name,
-                                   Integer storeId,
-                                   Integer genreId,
-                                   Integer price
-     */
-
     @POST
     @Path("create")
     public String createItem(@FormParam("itemName") String name,
                              @FormParam("storeId") int storeId,
                              @FormParam("genreId") int genreId,
-                             @FormParam("price") int price){
+                             @FormParam("price") int price) {
         ModelItem item = ItemFactory.getInstance()
                 .createNewItem(name, storeId, genreId, price);
-        if (item == null){
+        if (item == null) {
             return "";
         } else {
             return JSONConvertor.toJSON(item);
@@ -87,15 +53,28 @@ public class Item {
     }
 
     @POST
-    @Path("/")
-    public String updatePrice(@FormParam("barcode") String barcode, @FormParam("new_price") Integer newPrice){
-        ModelItem item = ItemFactory.getInstance().findFromBarcode(barcode);
+    @Path("{barcode}/update")
+    public String updateItem(
+            @PathParam("barcode") String barcode,
+            @FormParam("itemName") String name,
+            @FormParam("storeId") int storeId,
+            @FormParam("genreId") int genreId,
+            @FormParam("price") int price
+    ) {
+
+        ModelItem item =
+                ItemFactory.getInstance()
+                        .findFromBarcode(barcode);
         if (item == null) {
             return "";
-        } else {
-            item.setPrice(newPrice);
         }
-        if (ItemFactory.getInstance().update(item)){
+
+        item.setName(name);
+        item.setStoreId(storeId);
+        item.setGenreId(genreId);
+        item.setPrice(price);
+
+        if (ItemFactory.getInstance().update(item)) {
             return JSONConvertor.toJSON(item);
         } else {
             return "";

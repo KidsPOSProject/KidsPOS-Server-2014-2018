@@ -14,8 +14,8 @@
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-webapp-9.2.15.v20160210.jar_8b3i6i9g260pkkbk2jy6bzxya" relative="" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-jsp-2.1-7.5.4.v20111024.jar_5tonmf41li01mrt3s52w1calk/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-jsp-2.1-7.5.4.v20111024.jar_5tonmf41li01mrt3s52w1calk" relative="" />
-          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.1.4.jar_1dki07l2mw032bxg5ik18mcey/META-INF" relative="/META-INF" />
-          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.1.4.jar_1dki07l2mw032bxg5ik18mcey/info" relative="/info" />
+          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.1.7.jar_ajga4q8l598a9aaph28z28wip/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/kidspos4j-0.1.7.jar_ajga4q8l598a9aaph28z28wip/info" relative="/info" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_6mdizte20hyioe2t0yj63mpzr/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_6mdizte20hyioe2t0yj63mpzr/javax" relative="/javax" />
           <root url="file://$MODULE_DIR$/build/tmp/expandedArchives/jetty-http-9.2.15.v20160210.jar_8o68noquiladc0mma76dvhk9i/META-INF" relative="/META-INF" />
@@ -84,23 +84,12 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-jsp-2.1:7.5.4.v20111024" level="project" />
     <orderEntry type="library" name="Gradle: javax:javaee-api:7.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-server:2.22.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.containers:jersey-container-servlet-core:2.22.1" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.mail:javax.mail:1.5.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-common:2.22.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-client:2.22.1" level="project" />
     <orderEntry type="library" name="Gradle: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.media:jersey-media-jaxb:2.22.1" level="project" />
     <orderEntry type="library" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-api:2.4.0-b31" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:javax.inject:2.4.0-b31" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-locator:2.4.0-b31" level="project" />
     <orderEntry type="library" name="Gradle: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" name="Gradle: javax.activation:activation:1.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.22.1" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-utils:2.4.0-b31" level="project" />
-    <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:aopalliance-repackaged:2.4.0-b31" level="project" />
     <orderEntry type="library" name="Gradle: org.javassist:javassist:3.18.1-GA" level="project" />
     <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: junit:junit:4.11" level="project" />
@@ -128,6 +117,17 @@
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-servlet:9.2.15.v20160210" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-util:9.2.15.v20160210" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-security:9.2.15.v20160210" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Gradle: info.nukoneko:kidspos4j:0.1.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-common:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-api:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:javax.inject:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-locator:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-utils:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:aopalliance-repackaged:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-server:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.containers:jersey-container-servlet-core:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-client:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.media:jersey-media-jaxb:2.22.2" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: info.nukoneko:kidspos4j:0.1.7" level="project" />
   </component>
 </module>
