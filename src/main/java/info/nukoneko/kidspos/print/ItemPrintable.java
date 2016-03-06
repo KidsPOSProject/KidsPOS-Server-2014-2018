@@ -59,13 +59,15 @@ public class ItemPrintable implements KPPrintable {
         baseHeight += 20;
 
         g2.drawString("おつり", 0, baseHeight);
-        g2.drawString(String.valueOf((sum - printObject.receiveMoney)) + "リバー", 140, baseHeight);
+        g2.drawString(String.valueOf((printObject.receiveMoney - sum)) + "リバー", 140, baseHeight);
         baseHeight += 20;
         baseHeight += 20;
 
-        g2.drawString("おみせ", 0, baseHeight);
-        g2.drawString(printObject.storeName, 40, baseHeight);
-        baseHeight += 20;
+        if (!printObject.storeName.isEmpty()) {
+            g2.drawString("おみせ", 0, baseHeight);
+            g2.drawString(printObject.storeName, 40, baseHeight);
+            baseHeight += 20;
+        }
 
         if (!printObject.staffName.isEmpty()){
             g2.drawString("れじのたんとう", 0, baseHeight);

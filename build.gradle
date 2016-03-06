@@ -1,5 +1,5 @@
 group 'info.nukoneko'
-version '0.0.1'
+version '1.0.0'
 
 apply plugin: 'war'
 apply plugin: 'jetty'
@@ -37,7 +37,7 @@ dependencies {
     providedCompile "org.eclipse.jetty:jetty-webapp:$JettyVersion"
     providedCompile "org.eclipse.jetty:jetty-jsp-2.1:+"
 
-    providedCompile 'info.nukoneko:kidspos4j:0.1.7'
+    providedCompile 'info.nukoneko:kidspos4j:0.2.5'
 
 }
 

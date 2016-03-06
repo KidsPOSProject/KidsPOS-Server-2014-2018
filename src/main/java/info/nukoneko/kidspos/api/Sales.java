@@ -1,7 +1,13 @@
 package info.nukoneko.kidspos.api;
+import info.nukoneko.kidspos.print.ItemPrintObject;
+import info.nukoneko.kidspos.print.ItemPrintable;
+import info.nukoneko.kidspos.print.PrintManager;
+import info.nukoneko.kidspos4j.api.APIManager;
 import info.nukoneko.kidspos4j.api.Sale;
 import info.nukoneko.kidspos4j.exception.CannotCreateItemException;
 import info.nukoneko.kidspos4j.model.*;
+import info.nukoneko.kidspos4j.util.config.BarcodeCreatetor;
+import javafx.util.Pair;
 import rx.Observable;
 
 import javax.json.Json;
@@ -50,18 +56,79 @@ public class Sales {
 
     @POST
     @Path("create")
-    public String createSale(@FormParam("points") int points,
+    public String createSale(
+            @FormParam("received") int receivedRiver,
+            @FormParam("points") int points,
                              @FormParam("price") int price,
                              @FormParam("items") String items,
                              @FormParam("storeId") int storeId,
-                             @FormParam("staffId") int staffId){
-        ModelSale sale = SaleFactory.getInstance()
-                .createNewSale(points, price, items, storeId, staffId);
+                             @FormParam("staffBarcode") String staffBarcode) {
 
-        if (sale == null){
+        System.out.println(receivedRiver);
+        System.out.println(points);
+        System.out.println(price);
+        System.out.println(items);
+        System.out.println(storeId);
+        System.out.println(staffBarcode);
+
+        int staffId = 0;
+        if (!staffBarcode.isEmpty()) {
+            staffId = Integer.parseInt(staffBarcode
+                    .substring(staffBarcode.length() -
+                            BarcodeCreatetor.MAX_ITEM_LENGTH));
+        }
+        ModelSale sale = SaleFactory.getInstance()
+                .createNewSale(
+                        points,
+                        price,
+                        items,
+                        storeId,
+                        staffId);
+
+        System.out.println(sale);
+        if (sale == null) {
             return "";
         } else {
-            return JSONConvertor.toJSON(sale);
+            try {
+
+                System.out.println("====== Store Process =======");
+                ArrayList<ModelStore> stores = StoreFactory.getInstance().find("id = '" + String.valueOf(storeId) + "'");
+                String storeName = "";
+                if (stores.size() > 0) {
+                    storeName = stores.get(0).getName();
+                }
+
+                System.out.println("====== Staff Process =======");
+                ModelStaff staffs
+                        = StaffFactory.getInstance().findFromBarcode(staffBarcode);
+                String staffName = "";
+                if (staffs != null ) {
+                    staffName = staffs.getName();
+                }
+
+                System.out.println("====== Print Process =======");
+                ItemPrintObject itemPrintObject =
+                        new ItemPrintObject(storeName, staffName, receivedRiver);
+                String[] itemIds = items.split(",");
+
+                DataItemImpl itemFunc = ItemFactory.getInstance();
+                for (String itemId : itemIds){
+                    try {
+                        int _itemId = Integer.parseInt(itemId);
+                        ModelItem item = itemFunc.findFirst("id = '" + _itemId + "'");
+                        itemPrintObject.items.add(new Pair<>(item.getName(), item.getPrice()));
+                    } catch (Exception ignored) {
+                    }
+                }
+
+
+                PrintManager.printRecipt(new ItemPrintable(itemPrintObject));
+                return JSONConvertor.toJSON(sale);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
         }
     }
 
