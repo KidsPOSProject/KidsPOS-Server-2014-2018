@@ -1,32 +1,17 @@
 package info.nukoneko.kidspos.api;
+
 import info.nukoneko.kidspos.print.ItemPrintObject;
 import info.nukoneko.kidspos.print.ItemPrintable;
 import info.nukoneko.kidspos.print.PrintManager;
-import info.nukoneko.kidspos4j.api.APIManager;
-import info.nukoneko.kidspos4j.api.Sale;
-import info.nukoneko.kidspos4j.exception.CannotCreateItemException;
 import info.nukoneko.kidspos4j.model.*;
-import info.nukoneko.kidspos4j.util.config.BarcodeCreatetor;
+import info.nukoneko.kidspos4j.util.config.BarcodeCreator;
 import javafx.util.Pair;
 import rx.Observable;
 
-import javax.json.Json;
 import javax.ws.rs.*;
 import java.util.ArrayList;
 
-/**
- * Created atsumi on 2016/01/29.
- */
 
-/** Memo
- * @QueryParam Get等の ?name=hoge
- * @FormParam POST等の ?name=hoge
- * @PathParam URL等の tin.jp/12345/
- * @CookieParam Cookie等の ?name=Hoge
- *
- * @Consumes(MediaType.$type) 受け取るデータ
- * @Produces(MediaType.$type) 返すデータ
- */
 @Path("sale")
 public class Sales {
     @GET
@@ -75,7 +60,7 @@ public class Sales {
         if (!staffBarcode.isEmpty()) {
             staffId = Integer.parseInt(staffBarcode
                     .substring(staffBarcode.length() -
-                            BarcodeCreatetor.MAX_ITEM_LENGTH));
+                            BarcodeCreator.MAX_ITEM_LENGTH));
         }
         ModelSale sale = SaleFactory.getInstance()
                 .createNewSale(

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="kidspos:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="info.nukoneko" external.system.module.type="sourceSet" external.system.module.version="1.0.0" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web Gradle : kidspos-1.0.0.war">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/../../src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/../../src/main/webapp" relative="/" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javaee-api-7.0.jar_6zhiyp5wxbeyl70drmdrhnjns/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javaee-api-7.0.jar_6zhiyp5wxbeyl70drmdrhnjns/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-server-2.22.2.jar_dte8h5iolcq67un24x1p1hi7h/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-server-2.22.2.jar_dte8h5iolcq67un24x1p1hi7h/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-server-2.22.2.jar_dte8h5iolcq67un24x1p1hi7h/jersey" relative="/jersey" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-server-2.22.2.jar_dte8h5iolcq67un24x1p1hi7h/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-container-servlet-core-2.22.2.jar_bs71l0250phz3dmuvletxszrb/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-container-servlet-core-2.22.2.jar_bs71l0250phz3dmuvletxszrb/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-server-9.2.15.v20160210.jar_73bjnr6evnejifziwn540m61t/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-server-9.2.15.v20160210.jar_73bjnr6evnejifziwn540m61t" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-webapp-9.2.15.v20160210.jar_cs7qdselz27y6ysrki1nq4ibw/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-webapp-9.2.15.v20160210.jar_cs7qdselz27y6ysrki1nq4ibw" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-jsp-2.1-7.5.4.v20111024.jar_9hzbxl24mk90qs4p0ydto029t/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-jsp-2.1-7.5.4.v20111024.jar_9hzbxl24mk90qs4p0ydto029t" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/KidsPOS4j-1.0.1.jar_5oke79zl9m9hi2ozzz4l5iare/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/KidsPOS4j-1.0.1.jar_5oke79zl9m9hi2ozzz4l5iare/info" relative="/info" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.mail-1.5.0.jar_1wqudgsy0efntyj50qr3472hr/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.mail-1.5.0.jar_1wqudgsy0efntyj50qr3472hr/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.mail-1.5.0.jar_1wqudgsy0efntyj50qr3472hr/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-common-2.22.2.jar_vvctzjimtsvawyzufgvsvqsf/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-common-2.22.2.jar_vvctzjimtsvawyzufgvsvqsf/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-client-2.22.2.jar_chtf4rz4spdle0i5z9joq0gfb/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-client-2.22.2.jar_chtf4rz4spdle0i5z9joq0gfb/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.ws.rs-api-2.0.1.jar_c18mcat2xzpfsdp1w0sbsce5u/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.ws.rs-api-2.0.1.jar_c18mcat2xzpfsdp1w0sbsce5u/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-media-jaxb-2.22.2.jar_jwq7mm9i6snzvsh4g0kbtdtj/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-media-jaxb-2.22.2.jar_jwq7mm9i6snzvsh4g0kbtdtj/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.annotation-api-1.2.jar_7sh7syt4ckqh33rem1ml1rpcc/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.annotation-api-1.2.jar_7sh7syt4ckqh33rem1ml1rpcc/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/hk2-api-2.4.0-b34.jar_2fy2xq29l4px5e9yrjtv2am98/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/hk2-api-2.4.0-b34.jar_2fy2xq29l4px5e9yrjtv2am98/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.inject-2.4.0-b34.jar_1jw892avsu9s4ao0wui5xyq8g/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.inject-2.4.0-b34.jar_1jw892avsu9s4ao0wui5xyq8g/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/hk2-locator-2.4.0-b34.jar_77u5rwdt105o7xq2nxm5roqi/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/hk2-locator-2.4.0-b34.jar_77u5rwdt105o7xq2nxm5roqi/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/validation-api-1.1.0.Final.jar_49frjtoytur81l7s7497gpb0w/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/validation-api-1.1.0.Final.jar_49frjtoytur81l7s7497gpb0w/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_6hh0yk9ds2vb16ltsqmo8i747/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_6hh0yk9ds2vb16ltsqmo8i747/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-http-9.2.15.v20160210.jar_clemp07c3s7jdx9maa1v8fkgm/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-http-9.2.15.v20160210.jar_clemp07c3s7jdx9maa1v8fkgm" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-io-9.2.15.v20160210.jar_cn29bzle17sug72ipyitqikeu/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-io-9.2.15.v20160210.jar_cn29bzle17sug72ipyitqikeu" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-xml-9.2.15.v20160210.jar_c0mknlgw45jg7lrk61dgfuzx2/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-xml-9.2.15.v20160210.jar_c0mknlgw45jg7lrk61dgfuzx2" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-servlet-9.2.15.v20160210.jar_5hsohgab6r7vssal8d19w3ksc/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-servlet-9.2.15.v20160210.jar_5hsohgab6r7vssal8d19w3ksc" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-jaxrs-json-provider-2.8.6.jar_cck2tqji35t66cz5v4fs9cwvc/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-jaxrs-json-provider-2.8.6.jar_cck2tqji35t66cz5v4fs9cwvc/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/sqlite-jdbc-3.16.1.jar_1fecdskx5zn775svd4zdo5vp3/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/sqlite-jdbc-3.16.1.jar_1fecdskx5zn775svd4zdo5vp3/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/adapter-rxjava-2.1.0.jar_9cv90nqghr7p3ovaurpu9sckr/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/adapter-rxjava-2.1.0.jar_9cv90nqghr7p3ovaurpu9sckr/retrofit2" relative="/retrofit2" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/converter-jackson-2.1.0.jar_7lr9jxcljcpnpgpjo0tkblg1s/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/converter-jackson-2.1.0.jar_7lr9jxcljcpnpgpjo0tkblg1s/retrofit2" relative="/retrofit2" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/logging-interceptor-3.6.0.jar_59126cqz5qyyiz4vzsq9qk9gc/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/logging-interceptor-3.6.0.jar_59126cqz5qyyiz4vzsq9qk9gc/okhttp3" relative="/okhttp3" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/activation-1.1.jar_3c6ub51d0wax0nenapax798ll/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/activation-1.1.jar_3c6ub51d0wax0nenapax798ll/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/activation-1.1.jar_3c6ub51d0wax0nenapax798ll/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-guava-2.22.2.jar_byiikff0oavlb7r3vvdelmh2e/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jersey-guava-2.22.2.jar_byiikff0oavlb7r3vvdelmh2e/jersey" relative="/jersey" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/osgi-resource-locator-1.0.1.jar_72z01t887z7632mut87kiv0rq/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/osgi-resource-locator-1.0.1.jar_72z01t887z7632mut87kiv0rq/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/hk2-utils-2.4.0-b34.jar_egevhk5rarso0iywu6tvgt9ig/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/hk2-utils-2.4.0-b34.jar_egevhk5rarso0iywu6tvgt9ig/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/aopalliance-repackaged-2.4.0-b34.jar_d0rqwmp5n54tbetnc7mtxvthr/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/aopalliance-repackaged-2.4.0-b34.jar_d0rqwmp5n54tbetnc7mtxvthr/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javassist-3.18.1-GA.jar_8oey5ru03ak8agvjxlodglhmq/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javassist-3.18.1-GA.jar_8oey5ru03ak8agvjxlodglhmq/javassist" relative="/javassist" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-util-9.2.15.v20160210.jar_2hyoal1bp6m92v4evq34xdfl1/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-util-9.2.15.v20160210.jar_2hyoal1bp6m92v4evq34xdfl1" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-security-9.2.15.v20160210.jar_3guzxo872hz63y4jidfq9fs88/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jetty-security-9.2.15.v20160210.jar_3guzxo872hz63y4jidfq9fs88" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-jaxrs-base-2.8.6.jar_3hi7bi112vgc4cse5rcisvcz9/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-jaxrs-base-2.8.6.jar_3hi7bi112vgc4cse5rcisvcz9/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-core-2.8.6.jar_4kk59oc7gusnbcoqxklxyf3i6/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-core-2.8.6.jar_4kk59oc7gusnbcoqxklxyf3i6/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-databind-2.8.6.jar_6482gkct14fkcbv4gz6gqec1h/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-databind-2.8.6.jar_6482gkct14fkcbv4gz6gqec1h/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-module-jaxb-annotations-2.8.6.jar_7x3hq2rrv8vmo1zelysa4x2h0/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-module-jaxb-annotations-2.8.6.jar_7x3hq2rrv8vmo1zelysa4x2h0/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/retrofit-2.1.0.jar_fq8qyjq3g4m8uuhqkqzo3ric/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/retrofit-2.1.0.jar_fq8qyjq3g4m8uuhqkqzo3ric/retrofit2" relative="/retrofit2" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/rxjava-1.1.5.jar_dqrdp3pz28m804k7fvj78rm7f/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/rxjava-1.1.5.jar_dqrdp3pz28m804k7fvj78rm7f/rx" relative="/rx" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/okhttp-3.6.0.jar_74vnkex1u3svyynt6w2zexv5u/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/okhttp-3.6.0.jar_74vnkex1u3svyynt6w2zexv5u/okhttp3" relative="/okhttp3" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.inject-1.jar_85s3mxdy8akg3usognhyqxpd3/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-annotations-2.8.0.jar_58n6iqic0q7rfeayinv8irs0j/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/jackson-annotations-2.8.0.jar_58n6iqic0q7rfeayinv8irs0j/com" relative="/com" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/okio-1.11.0.jar_240mucaqywub5peobbzkgs1t4/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/okio-1.11.0.jar_240mucaqywub5peobbzkgs1t4/okio" relative="/okio" />
+          <root url="file://$MODULE_DIR$/../../build/classes/main/info" relative="/info" />
+        </webroots>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../../build/classes/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: javax:javaee-api:7.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-server:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.containers:jersey-container-servlet-core:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-server:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-webapp:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-jsp-2.1:7.5.4.v20111024" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.KidsPOSProject:KidsPOS4j:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.mail:javax.mail:1.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-common:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-client:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: javax.ws.rs:javax.ws.rs-api:2.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.media:jersey-media-jaxb:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-api:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:javax.inject:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-locator:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: javax.validation:validation-api:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-http:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-io:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-xml:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-servlet:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.8.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.16.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.retrofit2:adapter-rxjava:2.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-jackson:2.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.22.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2:osgi-resource-locator:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2:hk2-utils:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.glassfish.hk2.external:aopalliance-repackaged:2.4.0-b34" level="project" />
+    <orderEntry type="library" name="Gradle: org.javassist:javassist:3.18.1-GA" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-util:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Gradle: org.eclipse.jetty:jetty-security:9.2.15.v20160210" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.8.6" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.6" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.8.6" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.8.6" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: io.reactivex:rxjava:1.1.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.11.0" level="project" />
+  </component>
+</module>

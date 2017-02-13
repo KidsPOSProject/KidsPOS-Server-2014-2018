@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/kidspos.iml" filepath="$PROJECT_DIR$/kidspos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kidspos.iml" filepath="$PROJECT_DIR$/.idea/modules/kidspos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kidspos_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kidspos_main.iml" group="kidspos" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kidspos_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kidspos_test.iml" group="kidspos" />
     </modules>
   </component>
 </project>

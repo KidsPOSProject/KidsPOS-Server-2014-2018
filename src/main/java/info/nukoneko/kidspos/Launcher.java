@@ -6,9 +6,6 @@ import org.eclipse.jetty.webapp.WebAppContext;
 import java.net.URL;
 import java.security.ProtectionDomain;
 
-/**
- * Created by TEJNEK on 2016/02/01.
- */
 public class Launcher {
     public static void main(String[] args) throws Exception {
         Server server = new Server(8080);
