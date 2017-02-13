@@ -9,11 +9,8 @@ import java.awt.print.PrinterException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by b140096 on 2016/03/06.
- */
 public class ItemPrintable implements KPPrintable {
-    final ItemPrintObject printObject;
+    private final ItemPrintObject printObject;
     public ItemPrintable(ItemPrintObject printObject){
         this.printObject = printObject;
     }

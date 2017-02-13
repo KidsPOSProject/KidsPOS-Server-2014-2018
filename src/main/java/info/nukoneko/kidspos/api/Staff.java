@@ -1,16 +1,14 @@
 package info.nukoneko.kidspos.api;
 
 
-import info.nukoneko.kidspos4j.exception.CannotCreateItemException;
-import info.nukoneko.kidspos4j.model.*;
+import info.nukoneko.kidspos4j.model.JSONConvertor;
+import info.nukoneko.kidspos4j.model.ModelStaff;
+import info.nukoneko.kidspos4j.model.StaffFactory;
 import rx.Observable;
 
 import javax.ws.rs.*;
 import java.util.ArrayList;
 
-/**
- * Created by TEJNEK on 2016/01/31.
- */
 @Path("staff")
 public class Staff {
     @GET

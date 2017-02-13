@@ -1,6 +1,8 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.kidspos4j.model.*;
+import info.nukoneko.kidspos4j.model.ItemGenreFactory;
+import info.nukoneko.kidspos4j.model.JSONConvertor;
+import info.nukoneko.kidspos4j.model.ModelItemGenre;
 import rx.Observable;
 
 import javax.ws.rs.GET;
@@ -9,9 +11,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import java.util.ArrayList;
 
-/**
- * Created by TEJNEK on 2016/01/31.
- */
 @Path("item_genre")
 public class ItemGenre {
 //    @GET

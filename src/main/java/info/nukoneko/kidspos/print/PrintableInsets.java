@@ -1,8 +1,5 @@
 package info.nukoneko.kidspos.print;
 
-/**
- * Created by b140096 on 2016/03/06.
- */
 final public class PrintableInsets {
     final float x;
     final float y;

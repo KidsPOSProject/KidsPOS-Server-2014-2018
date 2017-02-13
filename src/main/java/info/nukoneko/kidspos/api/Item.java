@@ -1,16 +1,13 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.kidspos4j.model.*;
-import retrofit2.http.Field;
+import info.nukoneko.kidspos4j.model.ItemFactory;
+import info.nukoneko.kidspos4j.model.JSONConvertor;
+import info.nukoneko.kidspos4j.model.ModelItem;
 import rx.Observable;
-import rx.Observer;
 
 import javax.ws.rs.*;
 import java.util.ArrayList;
 
-/**
- * Created by TEJNEK on 2016/01/31.
- */
 @Path("item")
 public class Item {
     @GET

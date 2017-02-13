@@ -1,17 +1,15 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.kidspos4j.model.*;
+import info.nukoneko.kidspos4j.model.JSONConvertor;
+import info.nukoneko.kidspos4j.model.ModelStore;
+import info.nukoneko.kidspos4j.model.StoreFactory;
 import rx.Observable;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import java.util.ArrayList;
 
-/**
- * Created by TEJNEK on 2016/01/31.
- */
 @Path("store")
 public class Store {
     @GET

@@ -6,9 +6,6 @@ import java.awt.print.PageFormat;
 import java.awt.print.Paper;
 import java.awt.print.PrinterJob;
 
-/**
- * Created by b140096 on 2016/03/06.
- */
 public class PrintManager {
 
     final public static PrintableInsets defaultInsets = new PrintableInsets(10, 10, 280, 400);
