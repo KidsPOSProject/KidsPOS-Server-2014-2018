@@ -2,7 +2,6 @@ group 'info.nukoneko'
 version '1.0.1'
 
 apply plugin: 'war'
-apply plugin: 'jetty'
 
 def javaVersion = 1.8
 def defaultEncoding = 'UTF-8'
@@ -15,8 +14,8 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
-def JerseyVersion = '2.22.2'
-def JettyVersion = '9.2.15.v20160210'
+def JerseyVersion = '2.26-b02'
+def JettyVersion = '9.4.1.v20170120'
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
@@ -36,14 +35,6 @@ dependencies {
 
 compileJava {
     options.encoding = defaultEncoding
-}
-
-jettyRun {
-    httpPort = 8080
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.10'
 }
 
 war {
