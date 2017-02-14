@@ -8,7 +8,7 @@ import java.security.ProtectionDomain;
 
 public class Launcher {
     public static void main(String[] args) throws Exception {
-        Server server = new Server(8080);
+        Server server = new Server(9500);
         WebAppContext context = new WebAppContext();
         context.setContextPath("/");
 
