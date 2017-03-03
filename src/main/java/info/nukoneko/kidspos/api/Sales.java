@@ -75,7 +75,6 @@ public class Sales {
             return "";
         } else {
             try {
-
                 System.out.println("====== Store Process =======");
                 ArrayList<ModelStore> stores = StoreFactory.getInstance().find("id = '" + String.valueOf(storeId) + "'");
                 String storeName = "";
@@ -92,8 +91,7 @@ public class Sales {
                 }
 
                 System.out.println("====== Print Process =======");
-                ItemPrintObject itemPrintObject =
-                        new ItemPrintObject(storeName, staffName, receivedRiver);
+                ItemPrintObject itemPrintObject = new ItemPrintObject(storeName, storeId, staffName, receivedRiver);
                 String[] itemIds = items.split(",");
 
                 DataItemImpl itemFunc = ItemFactory.getInstance();
@@ -106,8 +104,7 @@ public class Sales {
                     }
                 }
 
-
-                PrintManager.printRecipt(new ItemPrintable(itemPrintObject));
+                PrintManager.printReceipt(new ItemPrintable(itemPrintObject));
                 return JSONConvertor.toJSON(sale);
 
             } catch (Exception e) {
