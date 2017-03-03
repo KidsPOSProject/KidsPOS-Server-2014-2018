@@ -30,7 +30,7 @@ dependencies {
     compile "org.eclipse.jetty:jetty-webapp:$JettyVersion"
     compile "org.eclipse.jetty:jetty-jsp-2.1:+"
 
-    compile 'com.github.KidsPOSProject:KidsPOS4j:1.0.1'
+    compile 'com.github.KidsPOSProject:KidsPOS4j:1.0.3'
 }
 
 compileJava {

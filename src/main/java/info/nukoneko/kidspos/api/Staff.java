@@ -1,9 +1,9 @@
 package info.nukoneko.kidspos.api;
 
 
-import info.nukoneko.kidspos4j.model.JSONConvertor;
-import info.nukoneko.kidspos4j.model.ModelStaff;
-import info.nukoneko.kidspos4j.model.StaffFactory;
+import info.nukoneko.cuc.kidspos4j.model.JSONConvertor;
+import info.nukoneko.cuc.kidspos4j.model.ModelStaff;
+import info.nukoneko.cuc.kidspos4j.model.StaffFactory;
 import rx.Observable;
 
 import javax.ws.rs.*;
