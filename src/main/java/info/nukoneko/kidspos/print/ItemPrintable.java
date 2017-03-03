@@ -1,6 +1,5 @@
 package info.nukoneko.kidspos.print;
 
-import com.sun.istack.internal.NotNull;
 import javafx.util.Pair;
 
 import java.awt.*;
@@ -12,7 +11,7 @@ import java.util.Date;
 
 public class ItemPrintable implements KPPrintable {
     private final ItemPrintObject printObject;
-    public ItemPrintable(@NotNull ItemPrintObject printObject){
+    public ItemPrintable(ItemPrintObject printObject){
         this.printObject = printObject;
     }
 

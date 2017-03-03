@@ -1,8 +1,5 @@
 package info.nukoneko.kidspos.print;
 
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
-import info.nukoneko.kidspos.api.Store;
 import info.nukoneko.kidspos.util.KPLogger;
 
 import javax.print.DocPrintJob;
@@ -19,7 +16,7 @@ public class PrintManager {
         private final String name;
         private final int printableStoreId;
 
-        PRINTER_TYPE(@NotNull String name, int printableStoreId) {
+        PRINTER_TYPE(String name, int printableStoreId) {
             this.name = name;
             this.printableStoreId = printableStoreId;
         }
@@ -33,7 +30,6 @@ public class PrintManager {
          * @param storeId お店のID
          * @return プリンターの種類
          */
-        @Nullable
         public static PRINTER_TYPE valueOf(int storeId) {
             for (PRINTER_TYPE type : PRINTER_TYPE.values()) {
                 if (type.printableStoreId == storeId) return type;
@@ -69,11 +65,10 @@ public class PrintManager {
         return true;
     }
 
-    @Nullable
     private static DocPrintJob getPrinterJob(PRINTER_TYPE usePrinter) {
         if (usePrinter == null) return null;
         for (PrintService service : PrinterJob.lookupPrintServices()) {
-            if (service.getName().equalsIgnoreCase(usePrinter.getName())) service.createPrintJob();
+            if (service.getName().equalsIgnoreCase(usePrinter.getName())) return service.createPrintJob();
         }
         return null;
     }
