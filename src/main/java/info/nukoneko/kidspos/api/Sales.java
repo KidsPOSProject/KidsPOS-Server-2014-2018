@@ -1,12 +1,10 @@
 package info.nukoneko.kidspos.api;
 
-import info.nukoneko.cuc.kidspos4j.model.StaffFactory;
+import info.nukoneko.cuc.kidspos4j.model.*;
 import info.nukoneko.cuc.kidspos4j.util.config.BarcodeRule;
 import info.nukoneko.kidspos.print.ItemPrintObject;
 import info.nukoneko.kidspos.print.ItemPrintable;
 import info.nukoneko.kidspos.print.PrintManager;
-import info.nukoneko.cuc.kidspos4j.model.*;
-import info.nukoneko.cuc.kidspos4j.util.config.BarcodeCreator;
 import javafx.util.Pair;
 import rx.Observable;
 
