@@ -1,5 +1,6 @@
 package info.nukoneko.kidspos.print;
 
+import com.sun.istack.internal.NotNull;
 import javafx.util.Pair;
 
 import java.awt.*;
@@ -11,9 +12,10 @@ import java.util.Date;
 
 public class ItemPrintable implements KPPrintable {
     private final ItemPrintObject printObject;
-    public ItemPrintable(ItemPrintObject printObject){
+    public ItemPrintable(@NotNull ItemPrintObject printObject){
         this.printObject = printObject;
     }
+
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         // 印刷の最大枚数
@@ -52,23 +54,23 @@ public class ItemPrintable implements KPPrintable {
         baseHeight += 20;
 
         g2.drawString("おあずかり", 0, baseHeight);
-        g2.drawString(String.valueOf(printObject.receiveMoney) + "リバー", 140, baseHeight);
+        g2.drawString(String.valueOf(printObject.getReceiveMoney()) + "リバー", 140, baseHeight);
         baseHeight += 20;
 
         g2.drawString("おつり", 0, baseHeight);
-        g2.drawString(String.valueOf((printObject.receiveMoney - sum)) + "リバー", 140, baseHeight);
+        g2.drawString(String.valueOf((printObject.getReceiveMoney() - sum)) + "リバー", 140, baseHeight);
         baseHeight += 20;
         baseHeight += 20;
 
-        if (!printObject.storeName.isEmpty()) {
+        if (!printObject.getStoreName().isEmpty()) {
             g2.drawString("おみせ", 0, baseHeight);
-            g2.drawString(printObject.storeName, 40, baseHeight);
+            g2.drawString(printObject.getStoreName(), 40, baseHeight);
             baseHeight += 20;
         }
 
-        if (!printObject.staffName.isEmpty()){
+        if (!printObject.getStaffName().isEmpty()){
             g2.drawString("れじのたんとう", 0, baseHeight);
-            g2.drawString(printObject.staffName, 100, baseHeight);
+            g2.drawString(printObject.getStaffName(), 100, baseHeight);
             baseHeight += 20;
         }
 
@@ -86,5 +88,10 @@ public class ItemPrintable implements KPPrintable {
     @Override
     public double getPrintableHeight() {
         return 0;
+    }
+
+    @Override
+    public PrintManager.PRINTER_TYPE gerUserPrinterType() {
+        return PrintManager.PRINTER_TYPE.valueOf(printObject.getStoreId());
     }
 }

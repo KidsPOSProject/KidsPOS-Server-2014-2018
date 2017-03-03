@@ -3,6 +3,8 @@ package info.nukoneko.kidspos;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
+import java.awt.*;
+import java.net.URI;
 import java.net.URL;
 import java.security.ProtectionDomain;
 
@@ -21,6 +23,12 @@ public class Launcher {
 
         try {
             server.start();
+
+            if(Desktop.isDesktopSupported())
+            {
+                Desktop.getDesktop().browse(new URI("http://localhost:9500"));
+            }
+
             System.err.println("Press ENTER to exit.");
             System.in.read();
             server.stop();
