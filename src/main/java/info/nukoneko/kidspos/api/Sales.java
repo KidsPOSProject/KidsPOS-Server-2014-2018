@@ -1,10 +1,10 @@
 package info.nukoneko.kidspos.api;
 
+import info.nukoneko.cuc.kidspos4j.model.*;
+import info.nukoneko.cuc.kidspos4j.util.config.BarcodeRule;
 import info.nukoneko.kidspos.print.ItemPrintObject;
 import info.nukoneko.kidspos.print.ItemPrintable;
 import info.nukoneko.kidspos.print.PrintManager;
-import info.nukoneko.kidspos4j.model.*;
-import info.nukoneko.kidspos4j.util.config.BarcodeCreator;
 import javafx.util.Pair;
 import rx.Observable;
 
@@ -59,8 +59,7 @@ public class Sales {
         int staffId = 0;
         if (!staffBarcode.isEmpty()) {
             staffId = Integer.parseInt(staffBarcode
-                    .substring(staffBarcode.length() -
-                            BarcodeCreator.MAX_ITEM_LENGTH));
+                    .substring(staffBarcode.length() - BarcodeRule.MAX_TYPE_VALUE2_LENGTH));
         }
         ModelSale sale = SaleFactory.getInstance()
                 .createNewSale(
@@ -75,7 +74,6 @@ public class Sales {
             return "";
         } else {
             try {
-
                 System.out.println("====== Store Process =======");
                 ArrayList<ModelStore> stores = StoreFactory.getInstance().find("id = '" + String.valueOf(storeId) + "'");
                 String storeName = "";
@@ -92,8 +90,7 @@ public class Sales {
                 }
 
                 System.out.println("====== Print Process =======");
-                ItemPrintObject itemPrintObject =
-                        new ItemPrintObject(storeName, staffName, receivedRiver);
+                ItemPrintObject itemPrintObject = new ItemPrintObject(storeName, storeId, staffName, receivedRiver);
                 String[] itemIds = items.split(",");
 
                 DataItemImpl itemFunc = ItemFactory.getInstance();
@@ -106,8 +103,7 @@ public class Sales {
                     }
                 }
 
-
-                PrintManager.printRecipt(new ItemPrintable(itemPrintObject));
+                PrintManager.printReceipt(new ItemPrintable(itemPrintObject));
                 return JSONConvertor.toJSON(sale);
 
             } catch (Exception e) {
