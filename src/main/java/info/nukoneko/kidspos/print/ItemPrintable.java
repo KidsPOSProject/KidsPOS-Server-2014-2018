@@ -34,12 +34,12 @@ public class ItemPrintable implements KPPrintable {
 
         int sum = 0;
         baseHeight += 20;
-        for (int i = 0 ; i < printObject.items.size() ; i++){
-            Pair<String, Integer> item = printObject.items.get(i);
+        for (int i = 0 ; i < printObject.getItems().size() ; i++){
+            Pair<String, Integer> item = printObject.getItems().get(i);
             g2.drawString(item.getKey(), 5, baseHeight);
             g2.drawString(String.valueOf(item.getValue()) + "リバー", 150, baseHeight);
             sum += item.getValue();
-            if (printObject.items.size() > i - 1) {
+            if (printObject.getItems().size() > i - 1) {
                 baseHeight += 20;
             }
         }

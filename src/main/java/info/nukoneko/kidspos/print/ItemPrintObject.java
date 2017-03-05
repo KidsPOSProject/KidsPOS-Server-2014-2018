@@ -2,15 +2,16 @@ package info.nukoneko.kidspos.print;
 
 import javafx.util.Pair;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ItemPrintObject {
-    public final ArrayList<Pair<String, Integer>> items = new ArrayList<>();
+    private final List<Pair<String, Integer>> items;
     private final String storeName;
     private final int storeId;
     private final String staffName;
     private final int receiveMoney;
-    public ItemPrintObject(String storeName, int storeId, String staffName, int receiveMoney){
+    public ItemPrintObject(List<Pair<String, Integer>> items, String storeName, int storeId, String staffName, int receiveMoney){
+        this.items = items;
         this.storeName = storeName;
         this.storeId = storeId;
         this.staffName = staffName;
@@ -29,7 +30,7 @@ public class ItemPrintObject {
         return storeId;
     }
 
-    public ArrayList<Pair<String, Integer>> getItems() {
+    public List<Pair<String, Integer>> getItems() {
         return items;
     }
 
