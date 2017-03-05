@@ -10,6 +10,7 @@ import rx.Observable;
 
 import javax.ws.rs.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Path("sale")
@@ -74,36 +75,23 @@ public class Sales {
             return "";
         } else {
             try {
-                System.out.println("====== Store Process =======");
-                ArrayList<ModelStore> stores = StoreFactory.getInstance().find("id = '" + String.valueOf(storeId) + "'");
-                String storeName = "";
-                if (stores.size() > 0) {
-                    storeName = stores.get(0).getName();
-                }
+                // getStoreName
+                final ArrayList<ModelStore> stores = StoreFactory.getInstance().find(String.format("id = '%d'", storeId));
+                final String storeName = stores.size() > 0 ? stores.get(0).getName() : "";
 
-                System.out.println("====== Staff Process =======");
-                ModelStaff staffs
-                        = StaffFactory.getInstance().findFromBarcode(staffBarcode);
-                String staffName = "";
-                if (staffs != null ) {
-                    staffName = staffs.getName();
-                }
+                // getStaffName
+                final ModelStaff staff = StaffFactory.getInstance().findFromBarcode(staffBarcode);
+                final String staffName = staff == null ? "" : staff.getName();
 
-                System.out.println("====== Print Process =======");
-                ItemPrintObject itemPrintObject = new ItemPrintObject(storeName, storeId, staffName, receivedRiver);
-                String[] itemIds = items.split(",");
+                // getItemLists
+                final DataItemImpl itemFunc = ItemFactory.getInstance();
+                final List<Pair<String, Integer>> itemLists = Observable.from(items.split(",")).map(itemId -> {
+                    final ModelItem item = itemFunc.findFirst("id = '" + itemId + "'");
+                    return new Pair<>(item.getName(), item.getPrice());
+                }).toList().toBlocking().single();
 
-                DataItemImpl itemFunc = ItemFactory.getInstance();
-                for (String itemId : itemIds){
-                    try {
-                        int _itemId = Integer.parseInt(itemId);
-                        ModelItem item = itemFunc.findFirst("id = '" + _itemId + "'");
-                        itemPrintObject.items.add(new Pair<>(item.getName(), item.getPrice()));
-                    } catch (Exception ignored) {
-                    }
-                }
-
-                PrintManager.printReceipt(new ItemPrintable(itemPrintObject));
+                // Print
+                PrintManager.printReceipt(new ItemPrintable(new ItemPrintObject(itemLists, storeName, storeId, staffName, receivedRiver)));
                 return JSONConvertor.toJSON(sale);
 
             } catch (Exception e) {
