@@ -2,7 +2,7 @@ package info.nukoneko.kidspos.print;
 
 public class PrintManager {
     public enum PRINTER_TYPE {
-        PRINTER_100("192.168.11.230", 1),
+        PRINTER_100("192.168.0.100", 1),
         PRINTER_101("192.168.0.101", 2);
 
         private final String name;
