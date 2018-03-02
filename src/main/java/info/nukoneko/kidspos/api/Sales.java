@@ -2,9 +2,9 @@ package info.nukoneko.kidspos.api;
 
 import info.nukoneko.cuc.kidspos4j.model.*;
 import info.nukoneko.cuc.kidspos4j.util.config.BarcodeRule;
-import info.nukoneko.kidspos.print.ItemPrintObject;
-import info.nukoneko.kidspos.print.ItemPrintable;
 import info.nukoneko.kidspos.print.PrintManager;
+import info.nukoneko.kidspos.util.print.PrintObject;
+import info.nukoneko.kidspos.util.print.Printer;
 import javafx.util.Pair;
 import rx.Observable;
 
@@ -91,7 +91,15 @@ public class Sales {
                 }).toList().toBlocking().single();
 
                 // Print
-                PrintManager.printReceipt(new ItemPrintable(new ItemPrintObject(itemLists, storeName, storeId, staffName, receivedRiver)));
+                Printer printer = new Printer(PrintManager.PRINTER_TYPE.valueOf(storeId).getName(), 9100);
+
+                final PrintObject printObject = new PrintObject(
+                        itemLists, storeName, staffName,
+                        sale.getPrice(), receivedRiver, sale.getPrice() - receivedRiver, sale.getBarcode()
+                );
+                printer.receipt(printObject);
+                printer.close();
+
                 return JSONConvertor.toJSON(sale);
 
             } catch (Exception e) {
