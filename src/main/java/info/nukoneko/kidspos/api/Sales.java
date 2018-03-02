@@ -2,10 +2,9 @@ package info.nukoneko.kidspos.api;
 
 import info.nukoneko.cuc.kidspos4j.model.*;
 import info.nukoneko.cuc.kidspos4j.util.config.BarcodeRule;
-import info.nukoneko.kidspos.print.ItemPrintObject;
-import info.nukoneko.kidspos.print.ItemPrintable;
 import info.nukoneko.kidspos.print.PrintManager;
-import javafx.util.Pair;
+import info.nukoneko.kidspos.util.print.PrintObject;
+import info.nukoneko.kidspos.util.print.Printer;
 import rx.Observable;
 
 import javax.ws.rs.*;
@@ -85,13 +84,20 @@ public class Sales {
 
                 // getItemLists
                 final DataItemImpl itemFunc = ItemFactory.getInstance();
-                final List<Pair<String, Integer>> itemLists = Observable.from(items.split(",")).map(itemId -> {
-                    final ModelItem item = itemFunc.findFirst("id = '" + itemId + "'");
-                    return new Pair<>(item.getName(), item.getPrice());
+                final List<ModelItem> itemLists = Observable.from(items.split(",")).map(itemId -> {
+                    return itemFunc.findFirst("id = '" + itemId + "'");
                 }).toList().toBlocking().single();
 
                 // Print
-                PrintManager.printReceipt(new ItemPrintable(new ItemPrintObject(itemLists, storeName, storeId, staffName, receivedRiver)));
+                Printer printer = new Printer(PrintManager.PRINTER_TYPE.valueOf(storeId).getName(), 9100);
+
+                final PrintObject printObject = new PrintObject(
+                        itemLists, storeName, staffName,
+                        sale.getPrice(), receivedRiver, sale.getPrice() - receivedRiver, sale.getBarcode()
+                );
+                printer.receipt(printObject);
+                printer.close();
+
                 return JSONConvertor.toJSON(sale);
 
             } catch (Exception e) {
