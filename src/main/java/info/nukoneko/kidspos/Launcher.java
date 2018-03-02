@@ -29,9 +29,9 @@ public class Launcher {
                 Desktop.getDesktop().browse(new URI("http://localhost:9500"));
             }
 
-            System.err.println("Press ENTER to exit.");
-            System.in.read();
-            server.stop();
+//            System.err.println("Press ENTER to exit.");
+//            System.in.read();
+//            server.stop();
             server.join();
         } catch (Exception e) {
             e.printStackTrace();
