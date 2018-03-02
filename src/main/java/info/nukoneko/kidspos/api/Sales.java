@@ -5,7 +5,6 @@ import info.nukoneko.cuc.kidspos4j.util.config.BarcodeRule;
 import info.nukoneko.kidspos.print.PrintManager;
 import info.nukoneko.kidspos.util.print.PrintObject;
 import info.nukoneko.kidspos.util.print.Printer;
-import javafx.util.Pair;
 import rx.Observable;
 
 import javax.ws.rs.*;
@@ -85,9 +84,8 @@ public class Sales {
 
                 // getItemLists
                 final DataItemImpl itemFunc = ItemFactory.getInstance();
-                final List<Pair<String, Integer>> itemLists = Observable.from(items.split(",")).map(itemId -> {
-                    final ModelItem item = itemFunc.findFirst("id = '" + itemId + "'");
-                    return new Pair<>(item.getName(), item.getPrice());
+                final List<ModelItem> itemLists = Observable.from(items.split(",")).map(itemId -> {
+                    return itemFunc.findFirst("id = '" + itemId + "'");
                 }).toList().toBlocking().single();
 
                 // Print

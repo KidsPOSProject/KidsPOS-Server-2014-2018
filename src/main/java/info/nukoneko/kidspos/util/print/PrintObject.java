@@ -1,11 +1,11 @@
 package info.nukoneko.kidspos.util.print;
 
-import javafx.util.Pair;
+import info.nukoneko.cuc.kidspos4j.model.ModelItem;
 
 import java.util.List;
 
 public final class PrintObject {
-    private final List<Pair<String, Integer>> items;
+    private final List<ModelItem> items;
     private final String storeName;
     private final String staffName;
     private final int total;
@@ -13,7 +13,7 @@ public final class PrintObject {
     private final int change;
     private final String transactionId;
 
-    public PrintObject(List<Pair<String, Integer>> items,
+    public PrintObject(List<ModelItem> items,
                        String storeName, String staffName,
                        int total, int deposit, int change, String transactionId) {
         this.items = items;
@@ -25,7 +25,7 @@ public final class PrintObject {
         this.transactionId = transactionId;
     }
 
-    public List<Pair<String, Integer>> getItems() {
+    public List<ModelItem> getItems() {
         return items;
     }
 

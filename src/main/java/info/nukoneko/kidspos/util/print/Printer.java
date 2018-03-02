@@ -1,6 +1,6 @@
 package info.nukoneko.kidspos.util.print;
 
-import javafx.util.Pair;
+import info.nukoneko.cuc.kidspos4j.model.ModelItem;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -44,9 +44,9 @@ public final class Printer {
         this.drawLine();
 
         // 商品
-        List<Pair<String,Integer>> item = printObject.getItems();
+        List<ModelItem> item = printObject.getItems();
         for( int i = 0; i < item.size(); i++) {
-            this.textPrice(item.get(i).getKey(), item.get(i).getValue());
+            this.textPrice(item.get(i).getName(), item.get(i).getPrice());
         }
         this.drawLine();
 
