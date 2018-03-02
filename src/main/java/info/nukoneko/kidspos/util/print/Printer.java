@@ -26,48 +26,47 @@ public final class Printer {
      * @param printObject
      */
     public void receipt(PrintObject printObject){
-        this.setGravityCenter();
-        this.write(new byte[]{0x1d, 0x21, 0x11}); //文字を縦横2倍
-
+        //初期化命令
+        this.write(new byte[]{0x1B, 0x40}); //初期化
+        this.write(new byte[]{0x1B, 0x33, 0x28}); //改行量設定
+        this.setGravity(Direction.CENTER);
         //タイトル
-        this.text("キッズビジネスタウン");
-        this.text("いちかわ");
-        this.write(new byte[]{0x1d, 0x21, 0x00}); //文字を縦横1倍
-        this.text("");
-        this.setGravityCenter();
-        this.text(new SimpleDateFormat("yyyy年MM月dd日(E) HH時mm分ss秒").format(new Date())); //日付時刻印字
+        this.write(new byte[]{0x1c, 0x70, 0x01, 0x00});
+
+        this.writeTextWithLine(new SimpleDateFormat("yyyy年MM月dd日(E) HH時mm分ss秒").format(new Date())); //日付時刻印字
+        this.addNewLine();
 
         // 店舗名・担当者
-        this.setGravityLeft();
-        this.text("店舗名 : " + printObject.getStoreName());
-        this.text("　担当 : " + printObject.getStaffName());
+        this.setGravity(Direction.LEFT);
+        this.writeTextWithLine("店舗名 : " + printObject.getStoreName());
+        this.writeTextWithLine("　担当 : " + printObject.getStaffName());
         this.drawLine();
 
         // 商品
         List<ModelItem> item = printObject.getItems();
         for( int i = 0; i < item.size(); i++) {
-            this.textPrice(item.get(i).getName(), item.get(i).getPrice());
+            this.writeRow(item.get(i).getName(), item.get(i).getPrice());
         }
         this.drawLine();
 
         //小計
-        this.textPrice("ごうけい",printObject.getTotal());
-        this.textPrice("おあずかり",printObject.getDeposit());
-        this.textPrice("おつり",printObject.getChange());
+        this.writeRow("ごうけい",printObject.getTotal());
+        this.writeRow("おあずかり",printObject.getDeposit());
+
+        this.writeRow("おつり",printObject.getChange());
         this.drawLine();
 
         //中央揃え
-        this.setGravityCenter();
+        this.setGravity(Direction.CENTER);
 
         // 注釈
-        this.text("");
-        this.text("印字保護のため、こちらの面を");
-        this.text("内側に折って保管してください");
-        this.text("");
+        this.addNewLine();
+        this.writeTextWithLine("印字保護のため、こちらの面を");
+        this.writeTextWithLine("内側に折って保管してください");
+        this.addNewLine();
 
         // バーコード
-        this.barcode(printObject.getTransactionId());
-        this.text(printObject.getTransactionId());
+        this.drawBarcode(printObject.getTransactionId());
         this.cut();
     }
 
@@ -76,39 +75,53 @@ public final class Printer {
      * @param name 出力レコードの文字列（商品名など）
      * @param price 出力レコードの金額（価格など）
      */
-    public void textPrice(String name, Integer price){
-        Integer priceLength; //priceの文字数
-        if(price == 0) priceLength = 1;
-        else priceLength = (int)Math.log10(price) + 1;
+    public void writeRow(String name, Integer price){
+        Integer priceOrder;
+        if(price == 0) priceOrder = 1;
+        else priceOrder = (int)Math.log10(price) + 1;
 
-        Integer marginByte = 38 - name.getBytes().length / 3 * 2 - name.getBytes().length % 3 - priceLength ;
-        // 38 = 48（1行の最大半角文字数）- 4（両端の隙間）- 6（"リバー"）
-        String marginSt = "";
-        for(int sp = 0; sp < marginByte; sp++){
-            marginSt = " " + marginSt;
-        }
-        this.text( "  " + name + marginSt + price + "リバー  ");
+        this.write(new byte[]{0x1B, 0x24,24,0});
+        this.writeText(name);
+        this.write(new byte[]{0x1B, 0x24,(byte)(226 - priceOrder * 12) ,1});
+        this.writeText(price + "リバー");
+        this.addNewLine();
     }
 
     /**
-     * 文字列を印字する（改行もする）
+     * 文字列を印字する
      * @param text
      */
-    public void text(String text) {
+    public void writeText(String text) {
         try {
-            write(concat(text.getBytes("SJIS"), new byte[]{0x0A}));
+            write(concat(text.getBytes("SJIS")));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+    }
+
+    public void writeTextWithLine(String text) {
+        try {
+            write(concat(text.getBytes("SJIS")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        write(new byte[]{0x0A});
+    }
+
+    /**
+     * 改行を行う
+     */
+    public void addNewLine(){
+        write(new byte[]{0x0A});
     }
 
     /**
      * 文字列を"太字で"印字する
      * @param text
      */
-    public void textWithBold(String text) {
+    public void writeTextWithBold(String text) {
         try {
-            write(concat(new byte[]{0x1B, 0x45, 0x01}, text.getBytes("SJIS"), new byte[]{0x1B, 0x45, 0x00}, new byte[]{0x0A}));
+            write(concat(new byte[]{0x1B, 0x45, 0x01}, text.getBytes("SJIS"), new byte[]{0x1B, 0x45, 0x00}));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -118,19 +131,34 @@ public final class Printer {
      * CODE39バーコードを印字する
      * @param code バーコードにする文字列
      */
-    public void barcode(String code){
+     public void drawBarcode(String code){
         byte[] codeByte = code.getBytes();
-        write(new byte[]{0x1D,0x6B,0x45}); //CODE39指定
+        write(new byte[]{0x1D, 0x68, 0x50}); //高さ設定 80(0x50) * 1dot(0.125mm) = 80dot(10mm)
+        write(new byte[]{0x1D, 0x67, 0x02}); //モジュール幅設定 3(0x03) * 1dot(0.125mm) = 3dot ＜2から6＞
+        write(new byte[]{0x1D, 0x48, 0x00}); //解説文字印字（印字しない）
+        write(new byte[]{0x1D, 0x6B, 0x45}); //CODE39指定
         write((byte)codeByte.length); //codeLength
-        write(codeByte); //mainCode
+        write(codeByte);
+        code = code.substring(1,code.length()-1);
+        this.writeTextWithLine(code);
         write(new byte[]{0x0A}); //改行（LF）
     }
 
     /**
+     * QRコードを印字する
+     * @param code
+     */
+    public void drawQR(String code){
+        write(new byte[]{0x1D, 0x28, 0x6B, 3, 0, 49, 67, 5});// モジュール幅を5dotに設定
+        write(new byte[]{0x1D, 0x28, 0x6B, (byte)(code.length() + 3), 0, 49, 80, 48});
+        write(code.getBytes());
+        write(new byte[]{0x1D, 0x28, 0x6B, 3, 0, 49, 81, 48});
+    }
+    /**
      * 水平線を引く
      */
     public void drawLine(){
-        this.text("────────────────────────"); //24文字
+        this.writeTextWithLine("────────────────────────"); //24文字
     }
 
     public void cut() {
@@ -140,25 +168,23 @@ public final class Printer {
     }
 
     /**
-     * 以降の印字を左揃えにする
+     * 印字文字の位置揃え
+     * @param dir LEFT,CENTER,RIGHT
      */
-    public void setGravityLeft() {
-        write(new byte[]{0x1B, 0x61, 0x00});
+    public void setGravity(Direction dir){
+        switch (dir){
+            case LEFT:
+                write(new byte[]{0x1B, 0x61, 0x00});
+                break;
+            case CENTER:
+                write(new byte[]{0x1B, 0x61, 0x01});
+                break;
+            case RIGHT:
+                write(new byte[]{0x1B, 0x61, 0x02});
+                break;
+        }
     }
 
-    /**
-     * 以降の印字を中央揃えにする
-     */
-    public void setGravityCenter() {
-        write(new byte[]{0x1B, 0x61, 0x01});
-    }
-
-    /**
-     * 以降の印字を右揃えにする
-     */
-    public void setGravityRight() {
-        write(new byte[]{0x1B, 0x61, 0x02});
-    }
 
     public void close() throws IOException {
         mStream.flush();
@@ -276,5 +302,9 @@ public final class Printer {
         }
 
         return byteBuffer.array();
+    }
+
+    public enum Direction{
+        LEFT, CENTER, RIGHT
     }
 }

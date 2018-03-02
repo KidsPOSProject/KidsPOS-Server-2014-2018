@@ -1,12 +1,15 @@
 package info.nukoneko.kidspos.util.print;
 
+import com.sun.istack.internal.Nullable;
 import info.nukoneko.cuc.kidspos4j.model.ModelItem;
 
 import java.util.List;
 
 public final class PrintObject {
     private final List<ModelItem> items;
+    @Nullable
     private final String storeName;
+    @Nullable
     private final String staffName;
     private final int total;
     private final int deposit;
@@ -14,7 +17,7 @@ public final class PrintObject {
     private final String transactionId;
 
     public PrintObject(List<ModelItem> items,
-                       String storeName, String staffName,
+                       @Nullable String storeName, @Nullable String staffName,
                        int total, int deposit, int change, String transactionId) {
         this.items = items;
         this.storeName = storeName;
@@ -29,10 +32,12 @@ public final class PrintObject {
         return items;
     }
 
+    @Nullable
     public String getStoreName() {
         return storeName;
     }
 
+    @Nullable
     public String getStaffName() {
         return staffName;
     }
