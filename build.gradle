@@ -2,30 +2,38 @@ group 'info.nukoneko'
 version '1.0.4'
 
 apply plugin: 'war'
+apply plugin: 'kotlin'
 
-def javaVersion = 1.8
-def defaultEncoding = 'UTF-8'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-sourceCompatibility = javaVersion
-targetCompatibility = javaVersion
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
 }
 
-def JerseyVersion = '2.26-b02'
-def JettyVersion = '9.4.1.v20170120'
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
     compile 'javax:javaee-api:7.0'
 
+    def JerseyVersion = '2.26-b02'
     compile "org.glassfish.jersey.core:jersey-server:$JerseyVersion"
     compile "org.glassfish.jersey.containers:jersey-container-servlet-core:$JerseyVersion"
 //    compile "org.glassfish.jersey.media:jersey-media-multipart:$JerseyVersion"
 
+    def JettyVersion = '9.4.1.v20170120'
     compile "org.eclipse.jetty:jetty-server:$JettyVersion"
     compile "org.eclipse.jetty:jetty-webapp:$JettyVersion"
     compile "org.eclipse.jetty:jetty-jsp-2.1:+"
@@ -34,7 +42,7 @@ dependencies {
 }
 
 compileJava {
-    options.encoding = defaultEncoding
+    options.encoding = 'UTF-8'
 }
 
 war {
