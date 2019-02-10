@@ -26,6 +26,8 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
     compile 'javax:javaee-api:7.0'
 
     def JerseyVersion = '2.26-b02'
@@ -39,10 +41,6 @@ dependencies {
     compile "org.eclipse.jetty:jetty-jsp-2.1:+"
 
     compile 'com.github.KidsPOSProject:KidsPOS4j:1.0.3'
-}
-
-compileJava {
-    options.encoding = 'UTF-8'
 }
 
 war {
@@ -60,4 +58,17 @@ war {
 
     // 3
     manifest.attributes('Main-Class': 'info.nukoneko.kidspos.Launcher')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+sourceSets {
+    all {
+        java.srcDirs += "src/${name}/kotlin"
+    }
+    main {
+        java.srcDirs += [file("$buildDir/generated/source/kapt/main")]
+    }
 }
